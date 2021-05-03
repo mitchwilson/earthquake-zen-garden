@@ -7,6 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
+    publicPath: '/'
   },
   resolve: {
     modules: [path.join(__dirname, 'src'), 'node_modules'],
@@ -57,6 +58,7 @@ module.exports = {
   //   }
   // }
   devServer: {
+    historyApiFallback: true,
     before: function(app) {
       app.get("/getData", function(req, res) {
         res.json(data);

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Home from 'pages/home';
+import Profile from 'pages/profile';
 
 class App extends Component {
 
@@ -22,7 +24,18 @@ class App extends Component {
 
   render() {
     return (
-      <Home title={this.state.title} />
+      <Router>
+        <Link to="/home">Home</Link>&nbsp;
+        <Link to="/profile">Profile</Link>
+        <Switch>
+          <Route path="/home">
+            <Home title={this.state.title} />
+          </Route>
+          <Route path="/profile">
+            <Profile/>
+          </Route>
+        </Switch>
+      </Router>
     );
   }
 
