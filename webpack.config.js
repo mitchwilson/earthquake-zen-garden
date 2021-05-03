@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
+const data = require("./data.json");
+
 module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -39,4 +41,28 @@ module.exports = {
       template: './src/index.html',
     }),
   ],
+  // devServer: {
+  //   before: function(app) {
+  //     app.get('/api', async function(req, res) {
+  //       try {
+  //         const queryURL = req.query.q;
+  //         const resp = await fetch(queryURL);
+  //         const body = await resp.text();
+  //         res.send(body);
+  //       } catch (e) {
+  //         res.status(500);
+  //         res.send(e);
+  //       }
+  //     });
+  //   }
+  // }
+  devServer: {
+    before: function(app) {
+      app.get("/getData", function(req, res) {
+        res.json(data);
+      });
+    },
+    open: true,
+    port: 8080
+  },
 };

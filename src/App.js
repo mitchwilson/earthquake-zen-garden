@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Home from 'pages/home';
 
-const App = () => {
-  return (
-      <h1>Earthquake Zen Garden</h1>
-  );
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: 'my title'
+    }
+  }
+
+  componentDidMount() {
+    fetch('/getData')
+      .then(res => res.json())
+      .then(result => {
+        this.setState({
+          title: result.site.title 
+        })
+      })
+  }
+
+  render() {
+    return (
+      <Home title={this.state.title} />
+    );
+  }
+
 };
 
 export default App;
