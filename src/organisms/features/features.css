@@ -1,0 +1,9 @@
+table.features {
+  font-family: sans-serif;
+  margin: auto;
+}
+
+th {
+  font-weight: lighter;
+  text-align: center;
+}

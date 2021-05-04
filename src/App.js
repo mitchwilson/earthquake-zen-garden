@@ -14,6 +14,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      features: [],
       firstName: '',
       logo: '',
       dataTitle: '',
@@ -25,7 +26,9 @@ class App extends Component {
     fetch('/getData')
       .then(res => res.json())
       .then(result => {
+        console.log(result.data.features[0].properties.place)
         this.setState({
+          features: result.data.features,
           metadataTitle: result.data.metadata.title,
           firstName: result.profile.firstName,
           logo: result.site.logoImage,
@@ -52,7 +55,7 @@ class App extends Component {
               <Profile/>
             </Route>
           <Route path="/">
-              <Home title={ this.state.metadataTitle }/>
+              <Home features={ this.state.features } title={ this.state.metadataTitle }/>
             </Route>
           </Switch>
         </MainTemplate>
