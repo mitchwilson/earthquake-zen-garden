@@ -14,6 +14,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      firstName: '',
       logo: '',
       title: ''
     }
@@ -24,6 +25,7 @@ class App extends Component {
       .then(res => res.json())
       .then(result => {
         this.setState({
+          firstName: result.profile.firstName,
           logo: result.site.logoImage,
           title: result.site.title
         })
@@ -40,7 +42,7 @@ class App extends Component {
             </Link>
             <SiteTitle title={ this.state.title }/>
             <Navigation>
-              <Link to="/profile">Profile</Link>
+              <Link to="/profile">{ `Welcome ${this.state.firstName}` }</Link>
             </Navigation>
           </Header>
           <Switch>
