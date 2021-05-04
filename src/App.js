@@ -16,6 +16,7 @@ class App extends Component {
     this.state = {
       firstName: '',
       logo: '',
+      dataTitle: '',
       title: ''
     }
   }
@@ -25,6 +26,7 @@ class App extends Component {
       .then(res => res.json())
       .then(result => {
         this.setState({
+          metadataTitle: result.data.metadata.title,
           firstName: result.profile.firstName,
           logo: result.site.logoImage,
           title: result.site.title
@@ -50,7 +52,7 @@ class App extends Component {
               <Profile/>
             </Route>
           <Route path="/">
-              <Home/>
+              <Home title={ this.state.metadataTitle }/>
             </Route>
           </Switch>
         </MainTemplate>
