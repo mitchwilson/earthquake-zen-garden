@@ -40,7 +40,7 @@ const Home = (props) => {
             return (
               <tr key={ i }>
                 <td><Link to={ linkObj }>{ feature.properties.place }</Link></td>
-                <td>{ feature.properties.mag }</td>
+                <td className="magnitude">{ feature.properties.mag }</td>
                 <td>{ dateTime }</td>
               </tr>
             )

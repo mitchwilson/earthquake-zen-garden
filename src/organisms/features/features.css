@@ -1,9 +1,16 @@
 table.features {
+  color: #777777;
   font-family: sans-serif;
+  font-weight: 700;
   margin: auto;
 }
 
 th {
   font-weight: lighter;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+td.magnitude {
   text-align: center;
 }
