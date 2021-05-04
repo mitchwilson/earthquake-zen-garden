@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'my title'
+      title: ''
     }
   }
 
@@ -28,11 +28,11 @@ class App extends Component {
         <Link to="/home">Home</Link>&nbsp;
         <Link to="/profile">Profile</Link>
         <Switch>
-          <Route path="/home">
-            <Home title={this.state.title} />
-          </Route>
           <Route path="/profile">
             <Profile/>
+          </Route>
+        <Route path="/">
+            <Home title={this.state.title} />
           </Route>
         </Switch>
       </Router>
