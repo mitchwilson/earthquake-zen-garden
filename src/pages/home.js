@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Features from '../organisms/features';
 
 const Home = (props) => {
@@ -25,9 +26,20 @@ const Home = (props) => {
 
             };
             const dateTime = new Date(feature.properties.time).toLocaleDateString('en-US', options);
+            const linkObj = {
+              pathname: "/detail",
+              state: {
+                magnitude: feature.properties.mag,
+                status: feature.properties.status,
+                time: dateTime,
+                title: feature.properties.title,
+                tsunami: feature.properties.tsunami,
+                type: feature.properties.type
+              }
+            }
             return (
               <tr key={ i }>
-                <td>{ feature.properties.place }</td>
+                <td><Link to={ linkObj }>{ feature.properties.place }</Link></td>
                 <td>{ feature.properties.mag }</td>
                 <td>{ dateTime }</td>
               </tr>

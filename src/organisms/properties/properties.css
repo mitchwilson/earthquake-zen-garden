@@ -1,0 +1,13 @@
+table.properties {
+  color: #777777;
+  font-family: sans-serif;
+  margin: auto;
+}
+
+table.properties td {
+  padding: 0 1rem;
+}
+
+table.properties td.label {
+  font-weight: 700;
+}
