@@ -35,7 +35,9 @@ class App extends Component {
       <Router>
         <MainTemplate>
           <Header>
-            <Logo image={ this.state.logo }/>
+            <Link to="/">
+              <Logo image={ this.state.logo }/>
+            </Link>
             <SiteTitle title={ this.state.title }/>
             <Navigation>
               <Link to="/profile">Profile</Link>
