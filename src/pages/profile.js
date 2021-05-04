@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ProfileTemplate from '../templates/ProfileTemplate';
 
 const Profile = (props) => {
@@ -18,5 +19,14 @@ const Profile = (props) => {
     </div>
   )
 };
+
+Profile.propTypes = {
+  avatarImage: PropTypes.string,
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  phone: PropTypes.string,
+  email: PropTypes.string,
+  bio: PropTypes.string
+}
 
 export default Profile;

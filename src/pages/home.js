@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Features from '../organisms/features';
 
 const Home = (props) => {
@@ -51,6 +52,10 @@ const Home = (props) => {
       </Features>
     </div>
   )
+}
+
+Home.propTypes = {
+  title: PropTypes.string
 }
 
 export default Home;

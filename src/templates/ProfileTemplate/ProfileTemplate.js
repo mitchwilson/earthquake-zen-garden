@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './profileTemplate.css';
 import Avatar from '../../atoms/Avatar';
 
@@ -34,6 +35,15 @@ const ProfileTemplate = (props) => {
         </table>
     </div>
   )
+}
+
+ProfileTemplate.propTypes = {
+  avatarImage: PropTypes.string,
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  phone: PropTypes.string,
+  email: PropTypes.string,
+  bio: PropTypes.string
 }
 
 export default ProfileTemplate;
