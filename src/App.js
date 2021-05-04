@@ -35,7 +35,7 @@ class App extends Component {
           <Header>
             <Logo image={ this.state.logo }/>
             <Navigation>
-              <Link to="/home">Home</Link>&nbsp;
+              <Link to="/">Home</Link>&nbsp;
               <Link to="/profile">Profile</Link>
             </Navigation>
           </Header>
