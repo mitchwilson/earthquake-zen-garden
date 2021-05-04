@@ -1,8 +1,21 @@
 import React from 'react';
+import ProfileTemplate from '../templates/ProfileTemplate';
 
-const Profile = () => {
+const Profile = (props) => {
   return (
-    <h2>Profile</h2>
+    <div>
+      <h2>Profile</h2>
+      <div>
+        <ProfileTemplate
+          avatarImage={ props.avatarImage }
+          firstName={ props.firstName }
+          lastName={ props.lastName }
+          phone={ props.phone }
+          email= {props.email }
+          bio={ props.bio }
+        />
+      </div>
+    </div>
   )
 };
 

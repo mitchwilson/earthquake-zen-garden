@@ -1,0 +1,17 @@
+div.profileTemplate {
+  color: #777777;
+  font-family: sans-serif;
+  margin: auto;
+  width: 45%;
+}
+
+div.profileAvatar {
+  float: left;
+}
+
+td.profileLabel {
+  padding: 0.25rem;
+  font-weight: 700;
+  vertical-align: top;
+  width: 6rem;
+}

@@ -15,8 +15,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      avatarImage: '',
+      bio: '',
+      email: '',
       features: [],
+      phone: '',
       firstName: '',
+      lastName: '',
       logo: '',
       dataTitle: '',
       title: ''
@@ -28,9 +33,14 @@ class App extends Component {
       .then(res => res.json())
       .then(result => {
         this.setState({
+          avatarImage: result.profile.avatarImage,
+          bio: result.profile.bio,
+          email: result.profile.email,
           features: result.data.features,
+          phone: result.profile.phone,
           metadataTitle: result.data.metadata.title,
           firstName: result.profile.firstName,
+          lastName: result.profile.lastName,
           logo: result.site.logoImage,
           title: result.site.title
         })
@@ -53,7 +63,14 @@ class App extends Component {
           <Switch>
             <Route path="/detail" component={ Detail }/>
             <Route path="/profile">
-              <Profile/>
+              <Profile
+                avatarImage={ this.state.avatarImage }
+                firstName={ this.state.firstName }
+                lastName={ this.state.lastName }
+                phone={ this.state.phone }
+                email={ this.state.email }
+                bio={ this.state.bio }
+              />
             </Route>
             <Route path="/">
               <Home features={ this.state.features } title={ this.state.metadataTitle }/>
