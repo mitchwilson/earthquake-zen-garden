@@ -1,8 +1,9 @@
 import React from 'react';
+import './logo.css';
 
 const Logo = (props) => {
   return (
-    <img src={ props.image } />
+    <img className={ 'logo' } src={ props.image } />
   )
 }
 

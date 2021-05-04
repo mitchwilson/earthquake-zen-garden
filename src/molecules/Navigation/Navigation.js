@@ -1,8 +1,9 @@
 import React from 'react';
+import './navigation.css';
 
 const Navigation = (props) => {
   return (
-    <div>
+    <div className={ 'navigation' }>
       { props.children }
     </div>
   )

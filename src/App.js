@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import './app.css';
 import Home from 'pages/home';
 import Profile from 'pages/profile';
 import MainTemplate from 'templates/MainTemplate';
 import Header from 'organisms/Header';
 import Logo from 'atoms/Logo';
 import Navigation from './molecules/Navigation';
+import SiteTitle from './atoms/SiteTitle';
 
 class App extends Component {
 
@@ -34,8 +36,8 @@ class App extends Component {
         <MainTemplate>
           <Header>
             <Logo image={ this.state.logo }/>
+            <SiteTitle title={ this.state.title }/>
             <Navigation>
-              <Link to="/">Home</Link>&nbsp;
               <Link to="/profile">Profile</Link>
             </Navigation>
           </Header>
@@ -44,7 +46,7 @@ class App extends Component {
               <Profile/>
             </Route>
           <Route path="/">
-              <Home title={ this.state.title } />
+              <Home/>
             </Route>
           </Switch>
         </MainTemplate>
