@@ -16,12 +16,13 @@ class Detail extends Component {
   }
 
   componentDidMount() {
-    const { magnitude, status, time, title, type } = this.props.location.state;
+    const { magnitude, status, time, title, tsunami, type } = this.props.location.state;
     this.setState({
       magnitude: magnitude,
       status: status,
       time: time,
       title: title,
+      tsunami: tsunami,
       type: type
     })
   }
