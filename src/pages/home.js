@@ -1,23 +1,46 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Features from '../organisms/features';
 
 const Home = (props) => {
+  const { features } = props;
+  const [sortColumn, setSortColumn] = useState({});
+  let sortedTable = [ ... features];
+  const updateSort = (name) => {
+    let direction = 'ascending';
+    if (sortColumn.name === name && sortColumn.direction === 'ascending') {
+      direction = 'descending';
+    }
+    setSortColumn({ name, direction });
+  }
+
+  if(sortColumn !== null) {
+    sortedTable.sort( (a, b) => {
+      if(a.properties[sortColumn.name] > b.properties[sortColumn.name]) {
+        return sortColumn.direction === 'ascending' ? 1 : -1;
+      }
+      if(a.properties[sortColumn.name] < b.properties[sortColumn.name]) {
+        return sortColumn.direction === 'ascending' ? -1 : 1;
+      }
+      return 0;
+    });
+  }
+
   return (
     <div>
       <h2>{ props.title }</h2>
       <Features>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Magnitude</th>
-            <th>Time</th>
+            <th onClick={ () => updateSort('title') }>Title</th>
+            <th onClick={ () => updateSort('mag') }>Magnitude</th>
+            <th onClick={ () => updateSort('time') }>Time</th>
           </tr>
         </thead>
         <tbody>
         {
-          props.features.map((feature, i)=>{
+          sortedTable.map((feature, i)=>{
             const options = {
               month:'short',
               day: '2-digit',
